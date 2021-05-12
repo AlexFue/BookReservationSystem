@@ -38,11 +38,13 @@ public class CreateAccount extends AppCompatActivity {
                     Toast.makeText(CreateAccount.this, "Error! Make username unique & fill out all fields", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    // ************** log new account transaction **************
+                    Log new_log = new Log("New Account: " + username);
+                    db.log().addLog(new_log);
+
                     User new_user = new User(username, password);
                     db.user().addUser(new_user);
-                    Toast.makeText(CreateAccount.this, "Successfully Created Account!", Toast.LENGTH_LONG).show();
 
+                    Toast.makeText(CreateAccount.this, "Successfully Created Account!", Toast.LENGTH_LONG).show();
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
