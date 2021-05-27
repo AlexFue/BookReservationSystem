@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookReservationSystem">
-        <activity android:name=".CreateAccount"></activity>
+        <activity android:name=".LoginToHoldActivity"></activity>
+        <activity android:name=".PlaceHoldActivity" />
+        <activity android:name=".AskToAddBookActivity" />
+        <activity android:name=".AddBookActivity" />
+        <activity android:name=".LogsActivity" />
+        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".CreateAccountActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

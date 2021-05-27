@@ -39,8 +39,7 @@ public class AddBookActivity extends AppCompatActivity {
                 String s_genre = genre.getText().toString();
 
                 AlertDialog.Builder alert = new AlertDialog.Builder(AddBookActivity.this);
-                alert.setTitle("Is the Book Information Correct? " + System.lineSeparator() + s_title + " by: " + s_author + ", genre: " + s_genre);
-
+                alert.setMessage("Is the Book Information Correct? " + System.lineSeparator() + s_title + " by: " + s_author + ", genre: " + s_genre);
                 alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         Book new_book = new Book(s_title, s_author, s_genre, "available");

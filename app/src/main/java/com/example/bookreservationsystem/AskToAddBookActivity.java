@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class AskToAddActivity extends AppCompatActivity {
+public class AskToAddBookActivity extends AppCompatActivity {
 
     private Button btn_yes;
     private Button btn_no;
@@ -21,7 +21,7 @@ public class AskToAddActivity extends AppCompatActivity {
         btn_yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(AskToAddActivity.this, AddBookActivity.class);
+                Intent i = new Intent(AskToAddBookActivity.this, AddBookActivity.class);
                 startActivity(i);
                 finish();
             }

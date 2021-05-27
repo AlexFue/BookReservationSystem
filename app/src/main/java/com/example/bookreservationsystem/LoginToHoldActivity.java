@@ -2,6 +2,8 @@ package com.example.bookreservationsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -42,13 +44,28 @@ public class LoginToHoldActivity extends AppCompatActivity {
 
                     db.book().setAvailability(bun.getInt("book_id"));
 
-                    Toast.makeText(LoginToHoldActivity.this, "Placed Hold on Book!", Toast.LENGTH_LONG).show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            LoginToHoldActivity.this.finish();
+                    AlertDialog.Builder alert = new AlertDialog.Builder(LoginToHoldActivity.this);
+                    alert.setMessage("Customer username: " + u + System.lineSeparator() + "Book Title: " + bun.getString("book_title") + System.lineSeparator() + "Reservation Number: " + reservation_num);
+                    alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Toast.makeText(LoginToHoldActivity.this, "Placed Hold on Book!", Toast.LENGTH_LONG).show();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    LoginToHoldActivity.this.finish();
+                                }
+                            }, 2000);
                         }
-                    }, 3000);
+                    });
+                    alert.show();
+
+//                    Toast.makeText(LoginToHoldActivity.this, "Placed Hold on Book!", Toast.LENGTH_LONG).show();
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            LoginToHoldActivity.this.finish();
+//                        }
+//                    }, 3000);
                 }
                 else{
 

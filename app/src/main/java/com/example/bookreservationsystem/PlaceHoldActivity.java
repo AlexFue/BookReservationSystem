@@ -2,6 +2,8 @@ package com.example.bookreservationsystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -52,7 +54,28 @@ public class PlaceHoldActivity extends AppCompatActivity {
                 sp_title.setAdapter(ad_titles);
 
                 if(titles.size() < 1){
-                    Toast.makeText(PlaceHoldActivity.this, "There are currently no available books for this genre", Toast.LENGTH_SHORT).show();
+                    AlertDialog.Builder alert = new AlertDialog.Builder(PlaceHoldActivity.this);
+                    alert.setMessage("There is currently no books for the selected genre, would you like to exit?");
+                    alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            Toast.makeText(PlaceHoldActivity.this, "Sorry for the inconvenience", Toast.LENGTH_SHORT).show();
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    PlaceHoldActivity.this.finish();
+                                }
+                            }, 2000);
+                        }
+                    });
+
+                    alert.setNegativeButton("No",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    Toast.makeText(PlaceHoldActivity.this, "Select a different genre", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+                    alert.show();
                 }
             }
 

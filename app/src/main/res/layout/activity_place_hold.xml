@@ -15,7 +15,7 @@
         android:spinnerMode="dialog" />
 
     <Spinner
-        android:id="@+id/sp_book"
+        android:id="@+id/sp_title"
         style="@android:style/Widget.Holo.Light.Spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -24,11 +24,19 @@
         android:spinnerMode="dialog" />
 
     <Button
-        android:id="@+id/ag_btn"
+        android:id="@+id/btn_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:padding="8dp"
         android:text="Checkout Book" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:text="Back"/>
 
 </LinearLayout>

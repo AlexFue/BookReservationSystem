@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class CreateAccount extends AppCompatActivity {
+public class CreateAccountActivity extends AppCompatActivity {
 
     private ReservationSystemDb db;
     private Button create;
@@ -35,7 +35,7 @@ public class CreateAccount extends AppCompatActivity {
                 boolean valid = isValid(username, password);
 
                 if(empty || !valid){
-                    Toast.makeText(CreateAccount.this, "Error! Make username unique & fill out all fields", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateAccountActivity.this, "Error! Make username unique & fill out all fields", Toast.LENGTH_LONG).show();
                 }
                 else{
                     Log new_log = new Log("New Account: " + username);
@@ -44,14 +44,14 @@ public class CreateAccount extends AppCompatActivity {
                     User new_user = new User(username, password);
                     db.user().addUser(new_user);
 
-                    Toast.makeText(CreateAccount.this, "Successfully Created Account!", Toast.LENGTH_LONG).show();
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            CreateAccount.this.finish();
-                        }
-                    }, 3000);
+                    Toast.makeText(CreateAccountActivity.this, "Successfully Created Account!", Toast.LENGTH_LONG).show();
                 }
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        CreateAccountActivity.this.finish();
+                    }
+                }, 3000);
             }
         });
 

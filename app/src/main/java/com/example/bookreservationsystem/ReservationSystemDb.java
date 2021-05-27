@@ -8,12 +8,13 @@ import androidx.room.RoomDatabase;
 
 import java.util.GregorianCalendar;
 
-@Database(entities = {User.class, Book.class}, version = 1, exportSchema = false)
+@Database(entities = {User.class, Book.class, Log.class}, version = 9, exportSchema = false)
 public abstract class ReservationSystemDb extends RoomDatabase {
 
     private static ReservationSystemDb sInstance;
     public abstract UserDao user();
     public abstract BookDao book();
+    public abstract LogDao log();
 
     public static synchronized ReservationSystemDb getInstance(Context context){
         if(sInstance == null){
@@ -27,8 +28,7 @@ public abstract class ReservationSystemDb extends RoomDatabase {
         return sInstance;
     }
 
-    public void seed() {
-
+    public void seed() { // prepopulating database with some users and books
         if (user().count() == 0) {
             User admin = new User("!admin2", "!admin2");
             User alex = new User("alex", "123");

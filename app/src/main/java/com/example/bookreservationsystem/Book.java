@@ -4,9 +4,10 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+//creating books table for database
 @Entity(tableName = "books")
 public class Book {
-
+    // adding columns to table
     @PrimaryKey(autoGenerate = true)
     private int mBookId;
 
@@ -22,13 +23,13 @@ public class Book {
     @ColumnInfo(name="availability")
     private String mAvailability;
 
-    public Book(String title, String author, String genre, String availability){
+    public Book(String title, String author, String genre, String availability){ // constructor to create an object of the table to add
         mTitle = title;
         mAuthor = author;
         mGenre = genre;
         mAvailability = availability;
     }
-
+    // functions to get / set variables
     public String getAvailability() {
         return mAvailability;
     }

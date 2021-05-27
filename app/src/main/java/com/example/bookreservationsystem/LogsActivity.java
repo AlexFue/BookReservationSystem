@@ -27,15 +27,23 @@ public class LogsActivity extends AppCompatActivity {
         messages = findViewById(R.id.tv_messages);
         logs = db.log().getAllLogs();
 
-        for(int i = 0; i < logs.size(); i++){
-            messages.setText(messages.getText() + System.lineSeparator() + logs.get(i).getMessage());
+        if(logs.size() > 0){
+            messages.setText("");
+            for(int i = 0; i < logs.size(); i++){
+                messages.setText(messages.getText() + System.lineSeparator() + logs.get(i).getMessage());
+            }
         }
+        else{
+            messages.setText("There are currently no available logs");
+        }
+
+
 
         ok = findViewById(R.id.btn_ok);
         ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(LogsActivity.this, AskToAddActivity.class);
+                Intent i = new Intent(LogsActivity.this, AskToAddBookActivity.class);
                 startActivity(i);
                 finish();
             }
